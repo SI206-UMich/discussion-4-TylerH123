@@ -1,22 +1,23 @@
-class Rectangle():
+class Rectangle:
     # Create the constructor "__init__" method
     # Arguments: width (an ingeter), height (an integer)
-    # 
+    #
     # It sets an instance variable, "width" to the passed argument, width
     # It sets an instance variable, "height" to the passed argument, height
 
     # YOUR CODE HERE
-
-
+    def __init__(self, width: int, height: int):
+        self.width = width
+        self.height = height
 
     # Create the "__str__" method
     #
-    # It returns a string, 
+    # It returns a string,
     #       "A rectangle with width ____ and height ____"
 
     # YOUR CODE HERE
-
-
+    def __str__(self):
+        return f"A rectange with width {self.width} and {self.height}"
 
     # Create the "verify_input" method
     #
@@ -25,8 +26,8 @@ class Rectangle():
     #       False otherwise
 
     # YOUR CODE HERE
-
-
+    def verify_input(self):
+        return self.height > 0 and self.width > 0
 
     # Create the "area" method
     #
@@ -34,8 +35,10 @@ class Rectangle():
     # Otherwise, it returns the area of the rectangle.
 
     # YOUR CODE HERE
-
-
+    def area(self):
+        if self.verify_input():
+            return self.height * self.width
+        return "Invalid input"
 
     # Create the "perimeter" method
     #
@@ -43,7 +46,10 @@ class Rectangle():
     # Otherwise, it returns the perimeter of the rectangle.
 
     # YOUR CODE HERE
-    
+    def perimeter(self):
+        if self.verify_input():
+            return self.height * 2 + 2 * self.width
+        return "Invalid input"
 
 
 def main():
@@ -58,6 +64,7 @@ def main():
     print("Area:", r.area())
     print("Perimeter:", r.perimeter())
     print()
+
 
 if __name__ == "__main__":
     main()
